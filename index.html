@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English 101 • AI Assessment Center</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#172033;--muted:#667085;--accent:#4f46e5;--accent2:#7c3aed;--good:#15803d;--bad:#b91c1c;--border:#e5e7eb}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(135deg,#312e81,#6d28d9);color:white;padding:24px 5%;position:sticky;top:0;z-index:10;box-shadow:0 3px 14px #0002}
+header h1{margin:0;font-size:1.55rem}header p{margin:5px 0 0;opacity:.86}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}button,.tab{border:0;border-radius:10px;padding:10px 15px;font-weight:700;cursor:pointer}
+nav button{background:#ffffff20;color:#fff}nav button.active{background:#fff;color:#312e81}
+main{max-width:1180px;margin:26px auto;padding:0 18px}.view{display:none}.view.active{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 5px 18px #17203308}
+.card h2,.card h3{margin-top:0}.muted{color:var(--muted)}.pill{display:inline-block;background:#eef2ff;color:#4338ca;padding:4px 9px;border-radius:999px;font-size:.78rem;font-weight:700}
+.primary{background:var(--accent);color:white}.secondary{background:#eef2ff;color:#3730a3}.danger{background:#fee2e2;color:#991b1b}
+input,select,textarea{width:100%;padding:11px 12px;border:1px solid #d1d5db;border-radius:9px;font:inherit;margin-top:6px}textarea{min-height:130px;resize:vertical}
+label{font-weight:700;display:block;margin:15px 0}.question{border-left:4px solid #c7d2fe;padding:16px 18px;margin:16px 0;background:#fafaff;border-radius:8px}.option{font-weight:500;margin:10px 0}.option input{width:auto;margin-right:8px}
+.progress{height:9px;background:#e5e7eb;border-radius:9px;overflow:hidden}.progress>div{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0}
+.chat{height:390px;overflow:auto;background:#f8fafc;border:1px solid var(--border);padding:15px;border-radius:12px}.msg{max-width:85%;padding:11px 14px;border-radius:14px;margin:8px 0;white-space:pre-wrap}.user{margin-left:auto;background:#e0e7ff}.bot{background:white;border:1px solid var(--border)}
+.row{display:flex;gap:10px;align-items:center}.row>*{flex:1}.small{font-size:.88rem}.success{color:var(--good);font-weight:700}.error{color:var(--bad);font-weight:700}
+.hero{padding:28px;background:linear-gradient(135deg,#eef2ff,#faf5ff);border-radius:18px;margin-bottom:20px}.hero h2{font-size:2rem;margin:.1em 0}
+details{border:1px solid var(--border);padding:14px;border-radius:10px;background:#fff;margin:10px 0}summary{cursor:pointer;font-weight:800}
+@media(max-width:650px){.row{flex-direction:column;align-items:stretch}header{position:static}}
+</style>
+</head>
+<body>
+<header>
+  <h1>English 101 • AI Assessment Center</h1>
+  <p>Review course materials • Practice with AI • Take quizzes • Submit work</p>
+  <nav>
+    <button class="active" data-view="home">Home</button>
+    <button data-view="materials">Course Materials</button>
+    <button data-view="ai">AI Study Coach</button>
+    <button data-view="quiz">Quiz</button>
+    <button data-view="submit">Submission</button>
+  </nav>
+</header>
+
+<main>
+<section id="home" class="view active">
+  <div class="hero">
+    <span class="pill">ENGLISH 101</span>
+    <h2>Welcome to your assessment center</h2>
+    <p>Use the materials to prepare, ask the AI Study Coach for explanations, then complete the quiz and submit your work to your instructor.</p>
+    <button class="primary" onclick="show('materials')">Start reviewing</button>
+  </div>
+  <div class="grid">
+    <div class="card"><h3>📚 Review</h3><p class="muted">Read lessons on rhetorical situations, thesis statements, evidence, paragraph organization, revision, and academic integrity.</p></div>
+    <div class="card"><h3>🤖 Practice</h3><p class="muted">Ask the AI Study Coach to explain concepts or generate practice questions.</p></div>
+    <div class="card"><h3>📝 Assess</h3><p class="muted">Complete the sample English 101 quiz. Your answers remain in the browser until you submit.</p></div>
+    <div class="card"><h3>☁️ Submit</h3><p class="muted">Send your completed assessment to your instructor's Google Sheet through Google Apps Script.</p></div>
+  </div>
+</section>
+
+<section id="materials" class="view">
+  <h2>Course Materials</h2>
+  <p class="muted">Starter materials are included below. Replace them with your actual English 101 readings, lectures, and links.</p>
+  <details open><summary>Module 1 — Rhetorical Situation</summary>
+    <p>A rhetorical situation describes the relationship among the <b>writer</b>, <b>audience</b>, <b>purpose</b>, <b>context</b>, and <b>message</b>. Strong academic writing makes deliberate choices based on these elements.</p>
+    <p><b>Key question:</b> Who am I writing to, why am I writing, and what does my audience need?</p>
+  </details>
+  <details><summary>Module 2 — Thesis Statements</summary>
+    <p>A thesis is a focused claim that gives an essay direction. A useful thesis is specific, debatable, and appropriately scoped for the assignment.</p>
+    <p><b>Weak:</b> Social media is important.</p><p><b>Stronger:</b> First-year college students can benefit from intentional limits on social-media use because those limits reduce distraction during independent study.</p>
+  </details>
+  <details><summary>Module 3 — Evidence and Citation</summary>
+    <p>Evidence supports a claim, but evidence alone is not an argument. Writers should explain how evidence supports the claim and acknowledge relevant context or limitations.</p>
+  </details>
+  <details><summary>Module 4 — Paragraphs and Organization</summary>
+    <p>A focused paragraph generally develops one main idea. Topic sentences establish the paragraph's direction; evidence and analysis develop it; transitions help readers understand relationships among ideas.</p>
+  </details>
+  <details><summary>Module 5 — Revision</summary>
+    <p>Revision is more than proofreading. Effective revision may involve changing the thesis, reorganizing ideas, adding evidence, removing repetition, and improving audience awareness before correcting sentence-level errors.</p>
+  </details>
+  <details><summary>Module 6 — Academic Integrity</summary>
+    <p>Academic writing requires honest representation of ideas and sources. Follow your instructor's rules for quotation, paraphrase, citation, collaboration, and AI assistance.</p>
+  </details>
+</section>
+
+<section id="ai" class="view">
+  <h2>AI Study Coach</h2>
+  <div class="card">
+    <p class="muted">The coach is configured through Google Apps Script. It can explain course concepts and create practice activities. It should not provide answers to active assessment questions.</p>
+    <div id="chat" class="chat"><div class="msg bot">Hello! Ask me about English 101 concepts such as thesis statements, rhetorical situations, evidence, organization, or revision.</div></div>
+    <div class="row" style="margin-top:10px"><input id="aiInput" placeholder="e.g., What makes a thesis debatable?"><button class="primary" onclick="askAI()">Ask AI</button></div>
+    <p id="aiStatus" class="small muted"></p>
+  </div>
+</section>
+
+<section id="quiz" class="view">
+  <h2>English 101 Practice Assessment</h2>
+  <div class="card">
+    <div class="row"><div><b>Student:</b> <span id="quizStudent">Not entered</span></div><div><b>Progress:</b> <span id="progressText">0/8</span></div></div>
+    <div class="progress" style="margin:12px 0 20px"><div id="progressBar"></div></div>
+    <form id="quizForm"></form>
+    <div class="row"><button class="secondary" onclick="saveDraft();return false">Save draft</button><button class="primary" onclick="gradeQuiz();return false">Grade & Continue</button></div>
+    <div id="scoreBox" style="margin-top:15px"></div>
+  </div>
+</section>
+
+<section id="submit" class="view">
+  <h2>Submit Assessment</h2>
+  <div class="card">
+    <p class="muted">Enter your information, review your score, and submit. The submission is sent to the Google Apps Script endpoint configured below.</p>
+    <label>Student name<input id="studentName" required placeholder="Jane Smith"></label>
+    <label>Student email<input id="studentEmail" type="email" required placeholder="student@example.edu"></label>
+    <label>Course / section<input id="course" value="ENGL 101"></label>
+    <label>Optional comments<textarea id="comments" placeholder="Anything you want your instructor to know?"></textarea></label>
+    <div id="submitSummary" class="card" style="background:#f8fafc"></div>
+    <button class="primary" onclick="submitAssessment()">Submit to Instructor</button>
+    <p id="submitStatus"></p>
+  </div>
+</section>
+</main>
+
+<script>
+/* =========================================================
+   CONFIGURATION
+   1. Deploy Code.gs as a Google Apps Script Web App.
+   2. Paste the /exec URL below.
+   3. The same endpoint handles submissions and AI requests.
+   ========================================================= */
+const CONFIG = {
+  APPS_SCRIPT_URL: "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE",
+  QUIZ_ID: "english101-practice-01"
+};
+
+const questions = [
+ {id:"q1",type:"mc",q:"Which element asks why a writer is communicating?",opts:["Audience","Purpose","Evidence","Citation"],ans:1},
+ {id:"q2",type:"mc",q:"Which thesis is most appropriately specific and debatable?",opts:["College is important.","Writing is everywhere.","First-year students can improve study habits by using scheduled phone-free study periods.","Social media exists."],ans:2},
+ {id:"q3",type:"mc",q:"What should a writer usually do after presenting evidence?",opts:["Ignore it","Explain how it supports the claim","Add unrelated evidence","End the essay immediately"],ans:1},
+ {id:"q4",type:"mc",q:"What is revision?",opts:["Only fixing spelling","Only changing punctuation","Reconsidering ideas, organization, evidence, and purpose","Submitting the first draft"],ans:2},
+ {id:"q5",type:"mc",q:"A topic sentence primarily helps a reader understand:",opts:["The paragraph's main direction","The author's grade","The bibliography","The word count"],ans:0},
+ {id:"q6",type:"tf",q:"A thesis should always be a question rather than a claim.",opts:["True","False"],ans:1},
+ {id:"q7",type:"short",q:"In 1–3 sentences, explain why audience matters when making rhetorical choices.",ansText:""},
+ {id:"q8",type:"essay",q:"Write a short paragraph (4–6 sentences) explaining one strategy you could use to improve an academic essay during revision.",ansText:""}
+];
+
+let graded=false, score=0, savedDraft=null;
+
+function show(id){
+ document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x.dataset.view===id));
+ if(id==='quiz') renderQuiz();
+ if(id==='submit') updateSummary();
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>show(b.dataset.view));
+
+function renderQuiz(){
+ const f=document.getElementById('quizForm'); f.innerHTML="";
+ questions.forEach((x,i)=>{
+   const d=document.createElement('div'); d.className='question';
+   d.innerHTML=`<b>${i+1}. ${x.q}</b>`;
+   if(x.type==='mc'||x.type==='tf'){
+     x.opts.forEach((o,j)=>d.innerHTML+=`<label class="option"><input type="radio" name="${x.id}" value="${j}"> ${o}</label>`);
+   } else {
+     d.innerHTML+=`<textarea name="${x.id}" placeholder="${x.type==='essay'?'Write your paragraph here...':'Write 1–3 sentences...'}"></textarea>`;
+   }
+   f.appendChild(d);
+ });
+ document.getElementById('quizStudent').textContent=document.getElementById('studentName').value||'Not entered';
+ updateProgress();
+}
+
+function getAnswers(){
+ const data={};
+ questions.forEach(x=>{
+   const el=document.querySelector(`[name="${x.id}"]:checked`) || document.querySelector(`[name="${x.id}"]`);
+   data[x.id]=el ? el.value : "";
+ });
+ return data;
+}
+function updateProgress(){
+ const a=getAnswers(); let n=Object.values(a).filter(v=>v!=="").length;
+ document.getElementById('progressText').textContent=`${n}/${questions.length}`;
+ document.getElementById('progressBar').style.width=(n/questions.length*100)+'%';
+}
+document.addEventListener('input',()=>{if(document.getElementById('quiz').classList.contains('active'))updateProgress()});
+
+function gradeQuiz(){
+ const a=getAnswers(); let s=0, objective=0;
+ questions.forEach(x=>{
+   if(x.type==='mc'||x.type==='tf'){objective++; if(String(x.ans)===String(a[x.id]))s++;}
+ });
+ score=s; graded=true;
+ document.getElementById('scoreBox').innerHTML=`<div class="success">Objective score: ${s}/${objective} (${Math.round(s/objective*100)}%). Short-answer and essay responses require instructor review.</div>`;
+ saveDraft();
+ updateSummary();
+ show('submit');
+}
+function saveDraft(){savedDraft=getAnswers();localStorage.setItem('english101Draft',JSON.stringify(savedDraft));}
+function loadDraft(){
+ const raw=localStorage.getItem('english101Draft'); if(!raw)return;
+ try{savedDraft=JSON.parse(raw)}catch(e){}
+}
+function updateSummary(){
+ const a=savedDraft||getAnswers();
+ document.getElementById('submitSummary').innerHTML=`
+ <b>Assessment:</b> ${CONFIG.QUIZ_ID}<br>
+ <b>Objective score:</b> ${graded?score+'/6':'Not graded yet'}<br>
+ <b>Responses saved:</b> ${Object.values(a).filter(v=>v!=="").length}/${questions.length}
+ `;
+}
+async function submitAssessment(){
+ const name=document.getElementById('studentName').value.trim();
+ const email=document.getElementById('studentEmail').value.trim();
+ if(!name||!email){alert("Please enter your name and email.");return}
+ const answers=savedDraft||getAnswers();
+ const payload={
+   action:"submitAssessment",quizId:CONFIG.QUIZ_ID,course:document.getElementById('course').value,
+   studentName:name,studentEmail:email,score:graded?score:"",totalObjective:6,
+   comments:document.getElementById('comments').value,answers,submittedAt:new Date().toISOString()
+ };
+ const status=document.getElementById('submitStatus');
+ if(CONFIG.APPS_SCRIPT_URL.includes("PASTE_")){status.className="error";status.textContent="Set APPS_SCRIPT_URL in index.html before submitting.";return}
+ status.className="muted";status.textContent="Submitting...";
+ try{
+   const r=await fetch(CONFIG.APPS_SCRIPT_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});
+   const j=await r.json();
+   if(j.ok){status.className="success";status.textContent="Submitted successfully. Your instructor has received the submission.";localStorage.removeItem('english101Draft')}
+   else throw new Error(j.error||"Submission failed");
+ }catch(e){status.className="error";status.textContent="Submission failed: "+e.message}
+}
+async function askAI(){
+ const input=document.getElementById('aiInput'), q=input.value.trim(); if(!q)return;
+ addMsg(q,'user');input.value="";
+ const status=document.getElementById('aiStatus');status.textContent="AI is thinking...";
+ if(CONFIG.APPS_SCRIPT_URL.includes("PASTE_")){addMsg("The AI service is not connected yet. Deploy the included Google Apps Script and set APPS_SCRIPT_URL.","bot");status.textContent="";return}
+ try{
+   const r=await fetch(CONFIG.APPS_SCRIPT_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:"askAI",question:q})});
+   const j=await r.json(); if(!j.ok)throw new Error(j.error||"AI request failed");
+   addMsg(j.answer,'bot');
+ }catch(e){addMsg("AI request failed: "+e.message,'bot')} finally{status.textContent=""}
+}
+function addMsg(text,who){const c=document.getElementById('chat'),d=document.createElement('div');d.className='msg '+who;d.textContent=text;c.appendChild(d);c.scrollTop=c.scrollHeight}
+document.getElementById('studentName').addEventListener('input',()=>document.getElementById('quizStudent').textContent=document.getElementById('studentName').value||'Not entered');
+loadDraft();
+</script>
+</body>
+</html>
